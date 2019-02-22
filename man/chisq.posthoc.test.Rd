@@ -4,7 +4,7 @@
 \alias{chisq.posthoc.test}
 \title{Perform post hoc analysis based on residuals of Pearson's Chi-squared Test for Count Data.}
 \usage{
-chisq.posthoc.test(x, y, method = "bonferroni", alpha = 0.05, ...)
+chisq.posthoc.test(x, y, method = "bonferroni", round = 6, ...)
 }
 \arguments{
 \item{x}{A numeric vector passed on to the chisq.test function.}
@@ -13,7 +13,7 @@ chisq.posthoc.test(x, y, method = "bonferroni", alpha = 0.05, ...)
 
 \item{method}{The p adjustment method to be used. This is passed on to the p.adjust function.}
 
-\item{alpha}{The significance level for indicating which results are significant.}
+\item{round}{Number of digits to round the p.value to. Defaults to 6.}
 
 \item{...}{Additional arguments passed on to the chisq.test function.}
 }

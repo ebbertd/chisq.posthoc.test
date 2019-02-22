@@ -3,13 +3,14 @@
 #' @param x A numeric vector passed on to the chisq.test function.
 #' @param y A numeric vector passed on to the chisq.test function.
 #' @param method The p adjustment method to be used. This is passed on to the p.adjust function.
-#' @param alpha The significance level for indicating which results are significant.
+#' @param round Number of digits to round the p.value to. Defaults to 6.
 #' @param ... Additional arguments passed on to the chisq.test function.
 #'
 #' @return A table with the adjusted p value for each x y combination.
+#' @export
 
 chisq.posthoc.test <-
-  function(x, y, method = "bonferroni", alpha = 0.05, ...) {
+  function(x, y, method = "bonferroni", round = 6, ...) {
     # Perform the chi square test and save the residuals
     stdres <- chisq.test(x, y, ...)$stdres
     # Calculate the chi square values based on the residuls
@@ -25,15 +26,7 @@ chisq.posthoc.test <-
         n = ncol(adjusted_p_values) * nrow(adjusted_p_values)
       )
     }
-    # Indicate significant p values with a *
-    for (i in 1:nrow(adjusted_p_values)) {
-      for (j in 1:ncol(adjusted_p_values)) {
-        if (adjusted_p_values[i, j] < alpha) {
-          adjusted_p_values[i, j] <-
-            paste(adjusted_p_values[i, j], "*", sep = "")
-        }
-      }
-    }
+    adjusted_p_values <- round(adjusted_p_values, digits = round)
     # Print the results
     print(adjusted_p_values)
   }
