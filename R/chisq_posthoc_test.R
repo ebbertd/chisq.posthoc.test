@@ -52,6 +52,6 @@ chisq.posthoc.test <-
     rownames <- dimnames(x)[[1]]
     results[odd_rows, 1] <- rownames
     results[even_rows, 1] <- rownames
-    # Print the results
-    format(results)
+    # Return the results
+    results
   }
