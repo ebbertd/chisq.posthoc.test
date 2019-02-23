@@ -4,12 +4,10 @@
 \alias{chisq.posthoc.test}
 \title{Perform post hoc analysis based on residuals of Pearson's Chi-squared Test for Count Data.}
 \usage{
-chisq.posthoc.test(x, y, method = "bonferroni", round = 6, ...)
+chisq.posthoc.test(x, method = "bonferroni", round = 6, ...)
 }
 \arguments{
-\item{x}{A numeric vector passed on to the chisq.test function.}
-
-\item{y}{A numeric vector passed on to the chisq.test function.}
+\item{x}{A matrix passed on to the chisq.test function.}
 
 \item{method}{The p adjustment method to be used. This is passed on to the p.adjust function.}
 

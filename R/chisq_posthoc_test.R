@@ -1,7 +1,6 @@
 #' Perform post hoc analysis based on residuals of Pearson's Chi-squared Test for Count Data.
 #'
-#' @param x A numeric vector passed on to the chisq.test function.
-#' @param y A numeric vector passed on to the chisq.test function.
+#' @param x A matrix passed on to the chisq.test function.
 #' @param method The p adjustment method to be used. This is passed on to the p.adjust function.
 #' @param round Number of digits to round the p.value to. Defaults to 6.
 #' @param ... Additional arguments passed on to the chisq.test function.
@@ -11,12 +10,11 @@
 
 chisq.posthoc.test <-
   function(x,
-           y,
            method = "bonferroni",
            round = 6,
            ...) {
     # Perform the chi square test and save the residuals
-    stdres <- chisq.test(x, y, ...)$stdres
+    stdres <- chisq.test(x, ...)$stdres
     # Calculate the chi square values based on the residuls
     chi_square_values <- stdres ^ 2
     # Get the p values for the chi square values
@@ -40,14 +38,20 @@ chisq.posthoc.test <-
       as.data.frame(matrix(
         data = NA,
         nrow = nrow(adjusted_p_values) * 2,
-        ncol = ncol(adjusted_p_values) + 1
+        ncol = ncol(adjusted_p_values) + 2
       ))
     odd_rows <- seq(1, nrow(results), 2)
     even_rows <- seq(2, nrow(results), 2)
-    results[odd_rows, c(2:ncol(results))] <- stdres
-    results[even_rows, c(2:ncol(results))] <- adjusted_p_values
-    results[odd_rows, 1] <- "Residuals"
-    results[even_rows, 1] <- "p values"
+    results[odd_rows, c(3:ncol(results))] <- stdres
+    results[even_rows, c(3:ncol(results))] <- adjusted_p_values
+    results[odd_rows, 2] <- "Residuals"
+    results[even_rows, 2] <- "p values"
+    colnames <- dimnames(x)[[2]]
+    colnames <- append(colnames, c("Dimension", "Value"), after = 0)
+    colnames(results) <- colnames
+    rownames <- dimnames(x)[[1]]
+    results[odd_rows, 1] <- rownames
+    results[even_rows, 1] <- rownames
     # Print the results
-    print(results)
+    format(results)
   }
