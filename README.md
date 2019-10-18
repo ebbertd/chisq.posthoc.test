@@ -16,10 +16,10 @@ devtools::install_github("ebbertd/chisq.posthoc.test")
 ## Usage
 
 ```R
-chisq.posthoc.test(x, y, method = "bonferroni", alpha = 0.05, ...)
+chisq.posthoc.test(x, y, method = "bonferroni", ...)
 ```
 
-x and y correspond to x and y of the chisq.test function and are passed on to it. The method indicates the p adjustment method and defaults to the Bonferroni method. Alpha indicates the significane level which is used to mark the significant fields in the output with a *. Additional options can be given which are passed on to the chisq.test function.
+x corresponds to x of the chisq.test function and are passed on to it. The method indicates the p adjustment method and defaults to the Bonferroni method. Additional options can be given which are passed on to the chisq.test function.
 
 ## Notes
 
