@@ -21,3 +21,20 @@ A table with the adjusted p value for each x y combination.
 \description{
 Perform post hoc analysis based on residuals of Pearson's Chi-squared Test for Count Data.
 }
+\examples{
+# Data from Agresti(2007) p.39
+M <- as.table(rbind(c(762, 327, 468), c(484, 239, 477)))
+dimnames(M) <- list(gender = c("F", "M"),
+                   party = c("Democrat","Independent", "Republican"))
+
+# Pass data matrix to chisq.posthoc.test function
+chisq.posthoc.test(M)
+}
+\references{
+Agresti, A. (2007). \emph{An Introduction to Categorical Data Analysis}, 2nd
+ed. New York: John Wiley & Sons. Page 38.
+
+Beasley, T. M., & Schumacker, R. E. (1995). Multiple Regression Approach
+to Analyzing Contingency Tables: Post Hoc and Planned Comparison
+Procedures. \emph{The Journal of Experimental Education}, 64(1), 79--93.
+}

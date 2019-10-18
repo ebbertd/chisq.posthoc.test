@@ -6,6 +6,21 @@
 #' @param ... Additional arguments passed on to the chisq.test function.
 #'
 #' @return A table with the adjusted p value for each x y combination.
+#' @examples
+#' # Data from Agresti(2007) p.39
+#' M <- as.table(rbind(c(762, 327, 468), c(484, 239, 477)))
+#' dimnames(M) <- list(gender = c("F", "M"),
+#'                    party = c("Democrat","Independent", "Republican"))
+#'
+#' # Pass data matrix to chisq.posthoc.test function
+#' chisq.posthoc.test(M)
+#' @references
+#' Agresti, A. (2007). \emph{An Introduction to Categorical Data Analysis}, 2nd
+#' ed. New York: John Wiley & Sons. Page 38.
+#'
+#' Beasley, T. M., & Schumacker, R. E. (1995). Multiple Regression Approach
+#' to Analyzing Contingency Tables: Post Hoc and Planned Comparison
+#' Procedures. \emph{The Journal of Experimental Education}, 64(1), 79--93.
 #' @importFrom stats chisq.test p.adjust pchisq
 #' @export
 
@@ -23,8 +38,8 @@ chisq.posthoc.test <-
     # Adjust the p values with the chosen method
     adjusted_p_values <- p_values
     for (i in 1:nrow(adjusted_p_values)) {
-      adjusted_p_values[i,] <- p.adjust(
-        adjusted_p_values[i,],
+      adjusted_p_values[i, ] <- p.adjust(
+        adjusted_p_values[i, ],
         method = method,
         n = ncol(adjusted_p_values) * nrow(adjusted_p_values)
       )
