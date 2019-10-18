@@ -6,6 +6,7 @@
 #' @param ... Additional arguments passed on to the chisq.test function.
 #'
 #' @return A table with the adjusted p value for each x y combination.
+#' @importFrom stats chisq.test p.adjust pchisq
 #' @export
 
 chisq.posthoc.test <-

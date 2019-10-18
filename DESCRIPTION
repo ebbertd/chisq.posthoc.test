@@ -1,9 +1,9 @@
 Package: chisq.posthoc.test
 Type: Package
-Title: A Post Hoc Analysis For Pearson's Chi-Squared Test For Count Data
+Title: A Post Hoc Analysis for Pearson's Chi-Squared Test for Count Data
 Version: 0.1.0
-Author: Daniel Ebbert
-Maintainer: Daniel Ebbert <daniel@ebbert.nl>
+Author: person("Daniel", "Ebbert", email = "daniel.ebbert@uni-muenster.de", comment = c(ORCID = "0000-0003-3666-7205"))
+Maintainer: Daniel Ebbert <daniel.ebbert@uni-muenster.de>
 Description: Perform post hoc analysis based on residuals of Pearson's Chi-squared Test for Count Data.
 License: GPL-3
 Encoding: UTF-8
