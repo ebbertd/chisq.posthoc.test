@@ -4,9 +4,9 @@ Title: A Post Hoc Analysis for Pearson's Chi-Squared Test for Count Data
 Version: 0.1.1
 Authors@R: c(
   person("Daniel", "Ebbert", email = "daniel.ebbert@uni-muenster.de", role = c("cre", "aut"), comment = c(ORCID = "0000-0003-3666-7205")))
-Description: Perform post hoc analysis based on residuals of Pearson's Chi-squared Test for Count Data.
+Description: Perform post hoc analysis based on residuals of Pearson's Chi-squared Test for Count Data based on T. Mark Beasley & Randall E. Schumacker (1995) <doi: 10.1080/00220973.1995.9943797>.
 License: GPL-3
-URL: https://github.com/ebbertd/chisq.posthoc.test
+URL: http://chisq-posthoc-test.ebbert.nrw/
 BugReports: https://github.com/ebbertd/chisq.posthoc.test/issues
 Suggests: 
   knitr,
