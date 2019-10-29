@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.com/ebbertd/chisq.posthoc.test.svg?branch=master)](https://travis-ci.com/ebbertd/chisq.posthoc.test)
+<!-- badges: start -->
+  [![CRAN status](https://www.r-pkg.org/badges/version/chisq.posthoc.test)](https://CRAN.R-project.org/package=chisq.posthoc.test)
+  [![Build Status](https://travis-ci.com/ebbertd/chisq.posthoc.test.svg?branch=master)](https://travis-ci.com/ebbertd/chisq.posthoc.test)
+  <!-- badges: end -->
 
 # Overview
 
