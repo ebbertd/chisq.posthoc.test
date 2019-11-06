@@ -1,3 +1,7 @@
+# chisq.posthoc.test 0.1.3
+
+Added new option to compare the p values to an alpha value.
+
 # chisq.posthoc.test 0.1.2
 
 Changed the description file and added the pkgdown website.

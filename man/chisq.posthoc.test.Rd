@@ -4,14 +4,17 @@
 \alias{chisq.posthoc.test}
 \title{Perform post hoc analysis based on residuals of Pearson's Chi-squared Test for Count Data.}
 \usage{
-chisq.posthoc.test(x, method = "bonferroni", round = 6, ...)
+chisq.posthoc.test(x, method = "bonferroni", round = 4, alpha = 0.05,
+  ...)
 }
 \arguments{
 \item{x}{A matrix passed on to the chisq.test function.}
 
 \item{method}{The p adjustment method to be used. This is passed on to the p.adjust function.}
 
-\item{round}{Number of digits to round the p.value to. Defaults to 6.}
+\item{round}{Number of digits to round the p.value to. Defaults to 4.}
+
+\item{alpha}{The alpha value to the compare the p values to. Defaults to 0.05.}
 
 \item{...}{Additional arguments passed on to the chisq.test function.}
 }
@@ -28,7 +31,7 @@ dimnames(M) <- list(gender = c("F", "M"),
                    party = c("Democrat","Independent", "Republican"))
 
 # Pass data matrix to chisq.posthoc.test function
-chisq.posthoc.test(M)
+chisq.posthoc.test(M, alpha = 0.05)
 }
 \references{
 Agresti, A. (2007). \emph{An Introduction to Categorical Data Analysis}, 2nd

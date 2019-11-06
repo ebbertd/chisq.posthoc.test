@@ -2,7 +2,8 @@
 #'
 #' @param x A matrix passed on to the chisq.test function.
 #' @param method The p adjustment method to be used. This is passed on to the p.adjust function.
-#' @param round Number of digits to round the p.value to. Defaults to 6.
+#' @param round Number of digits to round the p.value to. Defaults to 4.
+#' @param alpha The alpha value to the compare the p values to. Defaults to 0.05.
 #' @param ... Additional arguments passed on to the chisq.test function.
 #'
 #' @return A table with the adjusted p value for each x y combination.
@@ -13,7 +14,7 @@
 #'                    party = c("Democrat","Independent", "Republican"))
 #'
 #' # Pass data matrix to chisq.posthoc.test function
-#' chisq.posthoc.test(M)
+#' chisq.posthoc.test(M, alpha = 0.05)
 #' @references
 #' Agresti, A. (2007). \emph{An Introduction to Categorical Data Analysis}, 2nd
 #' ed. New York: John Wiley & Sons. Page 38.
@@ -27,7 +28,8 @@
 chisq.posthoc.test <-
   function(x,
            method = "bonferroni",
-           round = 6,
+           round = 4,
+           alpha = 0.05,
            ...) {
     # Perform the chi square test and save the residuals
     stdres <- chisq.test(x, ...)$stdres
@@ -49,6 +51,7 @@ chisq.posthoc.test <-
     # Convert stdres and adjusted p values into data frames
     stdres <- as.data.frame.matrix(stdres)
     adjusted_p_values <- as.data.frame.matrix(adjusted_p_values)
+    adjusted_p_values[adjusted_p_values < alpha] <- paste0(adjusted_p_values[adjusted_p_values < alpha], "*")
     # Combine residuals and p values into one table
     results <-
       as.data.frame(matrix(
